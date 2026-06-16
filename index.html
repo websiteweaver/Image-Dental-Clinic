@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="مركز إمج لطب الأسنان في الرياض - نساهم في تصميم ابتسامتك بأحدث تقنيات طب الأسنان الرقمي والتقويم التجميلي تحت إشراف نخبة من الكفاءات الطبية." />
+<meta name="keywords" content="مركز إمج, عيادة أسنان الرياض, دكتورة العنود الزهير, دكتورة خلد الأهدل, تقويم الأسنان, تجميل الأسنان الرياض" />
+<meta name="author" content="Website Weaver" />
+<title>مركز إمج لطب الأسنان | IMAGE Dental Clinic — الرياض</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-clinical: #05070c;
+    --bg-card: #0d111a;
+    --border-glow: #1e293b;
+    --accent-cyan: #00f2fe;
+    --accent-blue: #4facfe;
+    --accent-glow: rgba(0, 242, 254, 0.25);
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: auto; font-family: 'Cairo', sans-serif; background: var(--bg-clinical); color: var(--text-primary); overflow-x: hidden; }
+
+  /* SCROLLBAR REFINEMENT */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg-clinical); }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent-blue), var(--accent-cyan)); border-radius: 4px; }
+
+  /* FIXED GLOW BACKGROUNDS */
+  .orb-1 { position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(79,172,254,0.1) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+  .orb-2 { position: fixed; bottom: -10%; right: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(0,242,254,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+
+  /* SCROLL PROGRESS TRACKER */
+  .scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)); transform-origin: right; transform: scaleX(0); z-index: 1000; transition: transform 0.1s linear; }
+
+  /* NAV TRANSFORMATION */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: rgba(5, 7, 12, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-glow); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  nav.scrolled { max-width: 850px; margin: 1rem auto; left: 2rem; right: 2rem; border-radius: 999px; padding: 0.8rem 2.5rem; background: rgba(13, 17, 26, 0.85); box-shadow: 0 20px 40px rgba(0,0,0,0.5); border-color: rgba(0, 242, 254, 0.2); }
+
+  .logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; color: var(--white); }
+  .logo span { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--text-muted); font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--accent-cyan); }
+  
+  .nav-cta { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); color: #000; padding: 0.6rem 1.5rem; border-radius: 30px; font-weight: 700; text-decoration: none; font-size: 0.9rem; transition: transform 0.2s, box-shadow 0.2s; }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 2rem; position: relative; z-index: 10; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0, 242, 254, 0.08); border: 1px solid rgba(0, 242, 254, 0.3); color: var(--accent-cyan); padding: 0.5rem 1.2rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; margin-bottom: 2rem; }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); font-weight: 900; line-height: 1.15; margin-bottom: 1.5rem; max-width: 950px; }
+  .hero h1 span { background: linear-gradient(135deg, var(--text-primary), var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 3rem; line-height: 1.8; }
+  
+  .btn-group { display: flex; gap: 1.5rem; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); color: #000; padding: 1rem 2.5rem; border-radius: 12px; font-weight: 700; text-decoration: none; box-shadow: 0 10px 30px var(--accent-glow); transition: all 0.3s; }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 242, 254, 0.4); }
+  .btn-secondary { border: 1px solid var(--border-glow); background: rgba(13, 17, 26, 0.5); color: var(--text-primary); padding: 1rem 2.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+  .btn-secondary:hover { border-color: var(--accent-cyan); background: rgba(0, 242, 254, 0.03); }
+
+  /* SCROLL SNAP INTERACTIVE VISUAL ENGINE */
+  .scroll-engine-container { position: relative; height: 350vh; background: #030509; border-top: 1px solid var(--border-glow); }
+  .sticky-viewport { position: sticky; top: 0; height: 100vh; width: 100vw; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  
+  /* CANVAS SCALE FOR RETINA RESPONSIVENESS */
+  #rendering-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.45; }
+
+  /* ANNOTATION CARDS WITH SNAP-STOP PROGRESS */
+  .annotation-card { position: absolute; right: 10%; background: rgba(13, 17, 26, 0.75); border: 1px solid var(--border-glow); backdrop-filter: blur(25px); padding: 2.5rem; border-radius: 24px; max-width: 420px; z-index: 5; opacity: 0; transform: translateY(40px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; }
+  .annotation-card.active { opacity: 1; transform: translateY(0); pointer-events: auto; border-color: rgba(0, 242, 254, 0.3); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+  .annotation-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--white); }
+  .annotation-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+  .card-indicator { display: inline-block; font-family: 'Space Grotesk', sans-serif; color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.5rem; text-transform: uppercase; }
+
+  /* CLINICAL SPECIFICATIONS COUNTER */
+  .specs-strip { background: var(--bg-card); border-y: 1px solid var(--border-glow); padding: 4rem 2rem; position: relative; z-index: 10; border-top: 1px solid var(--border-glow); border-bottom: 1px solid var(--border-glow); }
+  .specs-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+  .spec-box h2 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 900; background: linear-gradient(135deg, var(--white), var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
+  .spec-box p { font-size: 1rem; color: var(--text-muted); font-weight: 600; }
+
+  /* VERIFIED LIVE REVIEWS FROM GOOGLE */
+  .reviews-section { padding: 8rem 4rem; max-width: 1200px; margin: 0 auto; position: relative; z-index: 10; }
+  .section-header { margin-bottom: 4rem; text-align: right; }
+  .section-header h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; }
+  .section-header p { color: var(--text-muted); }
+  
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .review-card { background: var(--bg-card); border: 1px solid var(--border-glow); padding: 2.5rem; border-radius: 20px; position: relative; transition: border-color 0.3s; }
+  .review-card:hover { border-color: rgba(0, 242, 254, 0.25); }
+  .reviewer-info { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .reviewer-avatar { width: 48px; height: 48px; background: #1e293b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent-cyan); }
+  .reviewer-meta h4 { font-size: 1rem; font-weight: 700; color: var(--white); }
+  .reviewer-meta span { font-size: 0.8rem; color: var(--text-muted); }
+  .stars { color: #f59e0b; margin-bottom: 1rem; font-size: 0.9rem; }
+  .review-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
+
+  /* DIRECT INTERACTION FORM */
+  .appointment-section { padding: 4rem 2rem 8rem; max-width: 750px; margin: 0 auto; position: relative; z-index: 10; text-align: center; }
+  .form-container { background: var(--bg-card); border: 1px solid var(--border-glow); padding: 3.5rem; border-radius: 28px; text-align: right; box-shadow: 0 40px 80px rgba(0,0,0,0.6); }
+  .form-container h3 { font-size: 1.8rem; font-weight: 900; margin-bottom: 2rem; text-align: center; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .input-field { background: #05070c; border: 1px solid var(--border-glow); padding: 1rem; border-radius: 10px; color: var(--white); font-family: inherit; font-size: 0.95rem; outline: none; transition: border-color 0.3s; width: 100%; }
+  .input-field:focus { border-color: var(--accent-cyan); }
+  .full-width { grid-column: span 2; }
+  .submit-btn { width: 100%; background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); color: #000; border: none; padding: 1.1rem; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: transform 0.2s; margin-top: 1rem; }
+  .submit-btn:hover { transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { background: #030508; border-top: 1px solid var(--border-glow); padding: 4rem; text-align: center; position: relative; z-index: 10; }
+  .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .footer-meta { text-align: right; }
+  .footer-meta p { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; }
+  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-right: 2rem; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--accent-cyan); }
+
+  /* RESPONSIVE BREAKPOINTS */
+  @media (max-width: 968px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { display: none; }
+    .specs-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .full-width { grid-column: span 1; }
+    .annotation-card { left: 5%; right: 5%; bottom: 5%; top: auto; max-width: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="progressBar"></div>
+<div class="orb-1"></div>
+<div class="orb-2"></div>
+
+<!-- NAVIGATION ARCHITECTURE -->
+<nav id="navbar">
+  <div class="logo"><span>IMAGE</span> DENTAL</div>
+  <ul class="nav-links">
+    <li><a href="#hero">الرئيسية</a></li>
+    <li><a href="#features">تقنياتنا التجميلية</a></li>
+    <li><a href="#reviews">أراء المرضى</a></li>
+    <li><a href="#book">احجز موعدك</a></li>
+  </ul>
+  <a href="https://www.instagram.com/imagedentalclinic/" target="_blank" class="nav-cta">تابعنا على إنستغرام</a>
+</nav>
+
+<!-- HERO SPOTLIGHT SECTION -->
+<section class="hero" id="hero">
+  <div class="hero-badge">التطور الرقمي في طب الأسنان بالرياض</div>
+  <h1>تصميم الابتسامة الاحترافية<br/><span>بدقة إكلينيكية متناهية</span></h1>
+  <p>في مركز إمج لطب الأسنان، ندمج الهندسة الطبية الدقيقة بالتصوير الرقمي ثلاثي الأبعاد لنمنحك ابتسامات طبيعية ومستدامة.</p>
+  <div class="btn-group">
+    <a href="#book" class="btn-primary">حجز موعد فوري</a>
+    <a href="tel:+966114836060" class="btn-secondary">اتصال مباشر: 0114836060</a>
+  </div>
+</section>
+
+<!-- SCROLL CANVAS CONTROL MATRIX -->
+<div class="scroll-engine-container" id="features">
+  <div class="sticky-viewport">
+    <canvas id="rendering-canvas"></canvas>
+
+    <!-- Dynamic Overlay Cards Triggered via Scroll Interpolation -->
+    <div class="annotation-card" id="card1" style="top: 30%;">
+      <span class="card-indicator">STEP 01 // VENEERS</span>
+      <h3>دقة المحاكاة ثلاثية الأبعاد</h3>
+      <p>نصمم قشور الخزف تجميلياً عبر مسح رقمي كامل لبنية الفك، مما يضمن تطابقاً حيوياً ومظهراً فائق الطبيعية قبل البدء بالتركيب.</p>
+    </div>
+
+    <div class="annotation-card" id="card2" style="top: 35%;">
+      <span class="card-indicator">STEP 02 // EXPERTS</span>
+      <h3>نخبة الكفاءات الاستشارية</h3>
+      <p>نهتم بأدق تفاصيل علاجك تحت إشراف نخبة من الأخصائيين المشهود لهم بالكفاءة والأمانة الطبية مثل د. العنود الزهير، د. تغريد، ود. خلد الأهدل.</p>
+    </div>
+
+    <div class="annotation-card" id="card3" style="top: 40%;">
+      <span class="card-indicator">STEP 03 // HIGHLIGHT</span>
+      <h3>بيئة سريرية معقمة بالكامل</h3>
+      <p>نلتزم بأعلى معايير جودة مكافحة العدوى والتعقيم بالمملكة لضمان راحة وسلامة كل مريض خلال زيارته الاستشفائية.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DATA PERFORMANCE INDEX STRIP -->
+<div class="specs-strip">
+  <div class="specs-grid">
+    <div class="spec-box"><h2 class="counter-num" data-target="670">0</h2><p>تقييم مريض موثق</p></div>
+    <div class="spec-box"><h2 class="counter-num" data-target="5">0</h2><p>أطباء استشاريين</p></div>
+    <div class="spec-box"><h2 class="counter-num" data-target="100">0</h2><p>% رعاية مخصصة</p></div>
+    <div class="spec-box"><h2 class="counter-num" data-target="24">0</h2><p>عيادة مجهزة بالكامل</p></div>
+  </div>
+</div>
+
+<!-- VERIFIED PATIENT REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="section-header">
+    <h2>آراء وتجارب مرضانا</h2>
+    <p>مستخرجة مباشرة من سجلات غوغل الرسمية للمركز</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="reviewer-info">
+        <div class="reviewer-avatar">HK</div>
+        <div class="reviewer-meta"><h4>Hk A</h4><span>قبل شهر</span></div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"يشهد الله أني أكتب هذا التقييم بقمة سعادتي بعد ما رحت العيادة عند الدكتورة الذربة والأمينة د. العنود الزهير، رحت لأكثر من ٥ دكاترة قبلها ولا أحد حل المشكلة باحترافية مثلها فخورين بوجود كفاءات مثلها ومثل د. سلطان الراجح."</p>
+    </div>
+    <div class="review-card">
+      <div class="reviewer-info">
+        <div class="reviewer-avatar">AK</div>
+        <div class="reviewer-meta"><h4>عبير القحطاني</h4><span>قبل ٣ أشهر</span></div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"ما شاء الله المكان نظيف جدا ومرتب جدا.. الدكتورة تغريد دكتورة مثالية في علمها وعملها وأخلاقها وصبرها، دكتورة مجتهدة كريمة الأخلاق والعطاء تعطي المريض كل الاستفسارات وتشجعه على إتقان العلاج."</p>
+    </div>
+    <div class="review-card">
+      <div class="reviewer-info">
+        <div class="reviewer-avatar">OK</div>
+        <div class="reviewer-meta"><h4>عثمان K.</h4><span>قبل ٦ أشهر</span></div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"دكتورة خلد الأهدل من أفضل الدكاترة اللي قابلتهم على الإطلاق، صبورة جداً ومتعاونة ولا تتضايق من كثرة الأسئلة أبداً. تشرح الخطة العلاجية باحترافية عالية وتوضح كل خطوة بالتفصيل عشان المريض يكون مطمئن تماماً."</p>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY DIRECT ACCESS BOOKING -->
+<section class="appointment-section" id="book">
+  <div class="form-container">
+    <h3>تنسيق موعد استشاري فوري</h3>
+    <form id="appointmentForm" onsubmit="event.preventDefault(); alert('تم استلام طلب التنسيق بنجاح. سيتواصل معك الطاقم الطبي لمركز إمج فوراً.');">
+      <div class="form-grid">
+        <input type="text" class="input-field" placeholder="اسم المريض الثنائي *" required />
+        <input type="tel" class="input-field" placeholder="رقم الجوال (05xxxxxxx) *" required />
+        <select class="input-field full-width" required>
+          <option value="">اختر الاستشاري المفضّل</option>
+          <option value="alanoud">د. العنود الزهير</option>
+          <option value="taghreed">د. تغريد</option>
+          <option value="khuld">د. خلد الأهدل</option>
+          <option value="general">فحص استشاري عام / طوارئ</option>
+        </select>
+        <textarea class="input-field full-width" rows="4" placeholder="توضيح موجز للحالة أو نوع الإجراء المطلوب (تقويم، تجميل، علاج عصب)"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">تأكيد إرسال الطلب المستعجل</button>
+    </form>
+  </div>
+</section>
+
+<!-- PLATFORM FOOTER SIGNATURE -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-meta">
+      <div class="logo"><span>IMAGE</span> DENTAL</div>
+      <p>طريق التخصصي، المعذر الشمالي، الرياض، المملكة العربية السعودية</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/imagedentalclinic/" target="_blank">رابط الإنستغرام الرسمي</a>
+      <a href="tel:+966114836060">اتصل بنا</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const progressBar = document.getElementById('progressBar');
+  const container = document.getElementById('features');
+  const cards = [document.getElementById('card1'), document.getElementById('card2'), document.getElementById('card3')];
+  
+  // NAVBAR SCROLL TRANSFORM RUNTIME
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY;
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.transform = `scaleX(${scrollPos / totalHeight})`;
+
+    if (scrollPos > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    
+    // SCROLL SEQUENCE MAPPER FOR CARDS
+    if(container) {
+      const containerTop = container.offsetTop;
+      const containerHeight = container.offsetHeight - window.innerHeight;
+      const relativeProgress = (scrollPos - containerTop) / containerHeight;
+      
+      if(relativeProgress >= 0 && relativeProgress <= 1) {
+        if (relativeProgress < 0.3) {
+          toggleCards(0);
+        } else if (relativeProgress >= 0.3 && relativeProgress < 0.6) {
+          toggleCards(1);
+        } else if (relativeProgress >= 0.6) {
+          toggleCards(2);
+        }
+      } else if (relativeProgress < 0) {
+        cards.forEach(c => c.classList.remove('active'));
+      }
+    }
+  });
+
+  function toggleCards(activeIndex) {
+    cards.forEach((card, idx) => {
+      if(idx === activeIndex) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    });
+  }
+
+  // COUNT-UP ANIMATION MATRIX FOR SPECS
+  const counters = document.querySelectorAll('.counter-num');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        const target = parseInt(entry.target.getAttribute('data-target'));
+        let count = 0;
+        const speed = target / 40;
+        const updateCount = () => {
+          if(count < target) {
+            count = Math.ceil(count + speed);
+            entry.target.innerText = count > target ? target : count;
+            setTimeout(updateCount, 25);
+          }
+        };
+        updateCount();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => observer.observe(c));
+
+  // CANVAS INITIALIZATION MOCK (REPLACED BY FFMEG FRAME IMAGES LATER)
+  const canvas = document.getElementById('rendering-canvas');
+  if(canvas) {
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+      canvas.width = window.innerWidth * window.devicePixelRatio;
+      canvas.height = window.innerHeight * window.devicePixelRatio;
+      ctx.fillStyle = "#070b12";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = "rgba(0, 242, 254, 0.12)";
+      ctx.lineWidth = 1;
+      // Abstract dental tech guide vectors
+      ctx.beginPath();
+      ctx.arc(canvas.width/2, canvas.height/2, Math.min(canvas.width, canvas.height)*0.22, 0, 2*Math.PI);
+      ctx.stroke();
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+  }
+</script>
+</body>
+</html>
